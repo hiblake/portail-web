@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+button {
+  width: 10rem;
+}
+
+mat-card {
+  max-width: 10rem;
+  margin: auto;
+}
