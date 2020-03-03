@@ -1,41 +1,61 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { visitAll } from '@angular/compiler';
-
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
+import { Router, Params } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'page-login',
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss']
 })
-export class LoginComponent implements OnInit {
-    loginForm = this.fb.group(
-      {
-        email :['' , [Validators.required, Validators.email]]  ,
-        pwd: ['', Validators.required]
-      }
+export class LoginComponent {
 
+  loginForm: FormGroup;
+  errorMessage: string = '';
 
-    )
-
-  constructor(private fb: FormBuilder, private router: Router, public auth: AngularFireAuth) {
-
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.createForm();
   }
 
-  ngOnInit() {
-  }
-
-  public onSubmit() {
-    this.auth.auth.signInWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.pwd).then(user => {
-      debugger;
-    })
-    .catch(e => {
-      debugger;
+  createForm() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required ],
+      password: ['',Validators.required]
     });
-    this.router.navigate(['']);
   }
 
+  tryFacebookLogin(){
+    this.authService.doFacebookLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    })
+  }
+
+  tryTwitterLogin(){
+    this.authService.doTwitterLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    })
+  }
+
+  tryGoogleLogin(){
+    this.authService.doGoogleLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    })
+  }
+
+  tryLogin(value){
+    this.authService.doLogin(value)
+    .then(res => {
+      this.router.navigate(['/utilisateur']);
+    }, err => {
+      console.log(err);
+      this.errorMessage = err.message;
+    })
+  }
 }

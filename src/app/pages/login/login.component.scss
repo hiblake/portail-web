@@ -1,15 +1,13 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
+.header{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
 }
 
-button {
-  width: 10rem;
+.row{
+  margin-top: 10px;
 }
 
-mat-card {
-  max-width: 10rem;
-  margin: auto;
+.error{
+  color: red;
 }

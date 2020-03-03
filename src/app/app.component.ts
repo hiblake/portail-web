@@ -8,12 +8,4 @@ import { Utilisateur } from './utilisateur';
 })
 export class AppComponent {
   title = 'portail-web';
-
-  utilisateur: Utilisateur = {
-    nom: 'Hiba',
-    prenom: 'Filali',
-    email: 'hiba@gmail.com',
-    role: 'etudiante',
-    url: 'local'
-  };
-}
+};
