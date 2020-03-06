@@ -11,7 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,37 +27,47 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from '../app/core/auth.service';
 import { RouterModule } from '@angular/router';
-
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DocumentComponent } from './document/document/document.component';
+import { DocumentADDComponent } from './documentADD/documentADD.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    MenuComponent,
-    DashboardComponent,
-    UilisateurComponent,
-    UtilisateursComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
-  ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      LoginComponent,
+      MenuComponent,
+      DashboardComponent,
+      UilisateurComponent,
+      UtilisateursComponent,
+      DocumentADDComponent,
+      DocumentComponent,
+      HomeComponent,
+      DocumentADDComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      MatSliderModule,
+      MatInputModule,
+      MatFormFieldModule,
+      MatButtonModule,
+      MatCardModule,
+      ReactiveFormsModule,
+      LayoutModule,
+      MatToolbarModule,
+      MatSidenavModule,
+      MatIconModule,
+      MatListModule,
+      AngularFireModule.initializeApp(environment.firebase),
+      AngularFireAuthModule,
+      AngularFirestoreModule
+   ],
+   providers: [
+      AuthService
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

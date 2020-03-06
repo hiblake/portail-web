@@ -1,0 +1,16 @@
+
+  <form [formGroup]="angForm">
+      <th>auteur</th>
+      <th>Date d'Edition</th>
+      <th>Titre</th>
+
+      <tr>
+
+        <td><input  type="text" id="auteur" #auteur placeholder="auteur" size="15px" name ="auteur"/></td>
+        <td><input  type="text" id="dateEdition" #dateEdition placeholder="date d'édition" size="20px" name="dateEdition" /></td>
+        <td><input #titre   id="titre" type="text" placeholder="Titre" size="10px" name="Titre" /></td>
+        <td>
+          <button type="submit" (click)="create(auteur.value,dateEdition.value,titre.value)">Ajoute document</button>
+        </td>
+      </tr>
+    </form>
