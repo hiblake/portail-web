@@ -1,10 +1,26 @@
-
+<head>
+<style>
+.buttonStyle {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+}
+</style>
+</head>
+<body>
 <mat-card>
   <mat-card-content>
 
-    <input id ="Add" (click)="RedirectAddDocument()" type="button"  value="ajouter document"/> <br />
-    <input id ="List" (click)="RedirectListDocuments()" type="button"  value="Liste des documents"/> <br />
-    <button>Modification des documents</button>
+    <button id ="Add" class="buttonStyle" (click)="RedirectAddDocument()">ajouter document</button>
+    <button id ="List" class="buttonStyle" (click)="RedirectListDocuments()">Liste des documents</button>
+    <button class="buttonStyle">Modification des documents</button>
 
     </mat-card-content>
     </mat-card>
+  </body>

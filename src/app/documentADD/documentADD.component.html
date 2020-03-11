@@ -1,4 +1,19 @@
-
+<head>
+  <style>
+  .buttonStyle {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 125px;
+  }
+  </style>
+  </head>
+  <body>
   <form [formGroup]="angForm">
       <th>auteur</th>
       <th>Date d'Edition</th>
@@ -6,11 +21,14 @@
 
       <tr>
 
-        <td><input  type="text" id="auteur" #auteur placeholder="auteur" size="15px" name ="auteur"/></td>
-        <td><input  type="text" id="dateEdition" #dateEdition placeholder="date d'édition" size="20px" name="dateEdition" /></td>
-        <td><input #titre   id="titre" type="text" placeholder="Titre" size="10px" name="Titre" /></td>
-        <td>
-          <button type="submit" (click)="create(auteur.value,dateEdition.value,titre.value)">Ajoute document</button>
-        </td>
+        <td style="padding: 5px;"><input  type="text" id="auteur" #auteur placeholder="auteur" size="15px" name ="auteur"/></td>
+        <td style="padding: 5px;"><input  type="text" id="dateEdition" #dateEdition placeholder="date d'édition" size="20px" name="dateEdition" /></td>
+        <td style="padding: 5px;"><input #titre   id="titre" type="text" placeholder="Titre" size="10px" name="Titre" /></td>
+
+
       </tr>
+      <br />
+      <button type="submit" class="buttonStyle" (click)="create(auteur.value,dateEdition.value,titre.value)">Ajouter le document</button>
+
     </form>
+  </body>

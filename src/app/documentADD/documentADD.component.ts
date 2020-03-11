@@ -12,8 +12,7 @@ export class DocumentADDComponent implements OnInit {
   angForm: FormGroup;
   constructor(private documentService: DocumentService,private fb: FormBuilder , private router:Router) {
     this.angForm = this.fb.group({
-      name: ['', Validators.required ],
-      price: ['', Validators.required ]
+
    });
    }
 
